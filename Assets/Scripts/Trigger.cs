@@ -13,6 +13,6 @@ public class Trigger : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		(myWall.GetComponent<rotateWall>()).myactive = true;
+		(myWall.GetComponent<rotateWall>()).isActive = true;
 	}
 }

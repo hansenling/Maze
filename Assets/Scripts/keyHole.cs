@@ -14,9 +14,7 @@ public class keyHole : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collision){	
-		print ("HIY");
 		if (collision.gameObject.tag == "Player"){
-			print ("WHY");
 			collision.GetComponent<PlayerAttributes>().removeKey(color,this.gameObject);
 		
 		}

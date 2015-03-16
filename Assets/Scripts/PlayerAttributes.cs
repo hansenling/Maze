@@ -3,15 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerAttributes : MonoBehaviour {
-	public int numKeys= 0;
 	public List<GameObject> keys = new List<GameObject>();
+	public Vector3 lastPosition;
+	public Vector3 myVelocity;
 	// Use this for initialization
 	void Start () {
-	
+		lastPosition = transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		myVelocity = transform.position - lastPosition;
+		myVelocity = new Vector3 (myVelocity.x, myVelocity.y, myVelocity.z);
+		lastPosition = transform.position;
 	}
 	public void addKey (GameObject key){
 		keys.Add (key);
@@ -23,7 +27,6 @@ public class PlayerAttributes : MonoBehaviour {
 
 			if (keys[i]){
 				if (keys[i].GetComponent<Key>().set == false){
-					print ("WOOOO");
 					Vector3 keyPosition = this.gameObject.transform.position;
 					
 					keyPosition += this.gameObject.transform.forward;
@@ -38,12 +41,11 @@ public class PlayerAttributes : MonoBehaviour {
 						keys[i].gameObject.transform.localScale -= new Vector3 (.43f, .43f, .43f);
 						keys[i].GetComponent<Key>().scaled = true;
 					}
-					keyPosition.y += 1.1f;
-					keyPosition.x -= temp.x * .4f;
-					keyPosition.z -= temp.z * .4f;
+					keyPosition.y += .7f;
+					keyPosition.x -= temp.x * .2f;
+					keyPosition.z -= temp.z * .2f;
 					keyPosition.x += temp.x * currKey * .1f;
 					keyPosition.z += temp.z * currKey * .1f;
-					this.gameObject.GetComponent<PlayerAttributes>().numKeys +=1;
 					
 					keys[i].gameObject.transform.parent = this.gameObject.transform;
 					keys[i].gameObject.transform.position = keyPosition;

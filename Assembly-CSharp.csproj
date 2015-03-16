@@ -67,6 +67,7 @@
      <Compile Include="Assets\Scripts\PlayerAttributes.cs" />
      <Compile Include="Assets\Scripts\Teleporter.cs" />
      <Compile Include="Assets\Scripts\Trigger.cs" />
+     <Compile Include="Assets\Scripts\goal.cs" />
      <Compile Include="Assets\Scripts\keyHole.cs" />
      <Compile Include="Assets\Scripts\selfDestruct.cs" />
      <Compile Include="Assets\Scripts\testattribute.cs" />

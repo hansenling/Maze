@@ -13,10 +13,9 @@ public class trapActivator : MonoBehaviour {
 	
 	}
 	void OnTriggerEnter(Collider other){
-		print ("first");
 		if (other.collider.tag == "Player") {
 			(trapObject.GetComponent<trap> ()).up = true;
-			(trapObject.GetComponent<trap> ()).getThere ();
+			(trapObject.GetComponent<trap> ()).springTrap ();
 		}
 	}
 }

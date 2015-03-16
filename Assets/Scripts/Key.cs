@@ -2,10 +2,9 @@
 using System.Collections;
 
 public class Key : MonoBehaviour {
-	public float test = .1f;
+	public bool scaled = false;
 	public bool set = false;
 	public Color color;
-	public bool scaled = false;
 	// Use this for initialization
 	void Start () {
 		this.renderer.material.color = color;

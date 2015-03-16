@@ -2,33 +2,29 @@
 using System.Collections;
 
 public class trap : MonoBehaviour {
-	public double height = 5;
-	static double starty;
+	public float height = 5;
+	static float starty;
 	public bool up = false;
 	// Use this for initialization
 	void Start () {
-		starty = this.transform.position.y;
-
+		starty = transform.position.y;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (up == true) {
-			if (this.transform.position.y > 3) {
+			if (transform.position.y > 3) {
 				lowerTrap ();
 			}
 			if (this.transform.position.y < starty) {
-				this.rigidbody.velocity = new Vector3 (0, 0, 0);
+				rigidbody.velocity = new Vector3 (0, 0, 0);
+				transform.position = new Vector3(transform.position.x, transform.position.y + .1f, transform.position.z);
 				up = false;
 			}
 		}
 
 	}
-	public void getThere(){
-		print ("GO");
-		springTrap ();
-	}
-	void springTrap(){ 
+	public void springTrap(){ 
 		this.rigidbody.velocity += new Vector3 (0, 10, 0);
 	}
 	void lowerTrap(){
